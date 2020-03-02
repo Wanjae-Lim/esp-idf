@@ -1,0 +1,106 @@
+=============================================================================================================================================================================================================================================================================
+				ESP32 getting started guide
+=============================================================================================================================================================================================================================================================================
++Power Shell chocolatey install
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+choco
++PATH 등록
+C:\ProgramData\chocolatey\bin
+
+
+git clone --recursive https://github.com/espressif/esp-idf.git
+
++ easy install
+ESP-IDF Tools Installer 
+
++ cd ~/esp/esp-idf
+#./install.ps1
+./install.bat
+
++ cd ~/esp/esp-idf
+#./export.ps1
+./export.bat
+
+idf.py build
+
+choco install python
+choco uninstall python (version에 따라서 script 이행 안됨)
+https://go.microsoft.com/fwlink/?LinkID=135170
+
+
+cd %userprofile%\esp_idf
+xcopy /e /i .\esp-idf\examples\get-started\hello_world\* hello_world
+
++ esp-idf-tools-setup-2.2 install
+
++ idf.py
+https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started-cmake/add-idf_path-to-profile.html
+
++ idf.py build
+
++ idf.py -p PORT [-b BAUD] flash
+idf.py -p COM3 -b 115200 flash
+
+
+=============================================================================================================================================================================================================================================================================
+				AWS IoT
+=============================================================================================================================================================================================================================================================================
+
++ choco install cmake
++ choco install ninja
+
+cmake, ninja 환경변수등록
+C:\Program Files\CMake\bin
+C:\.espressif\tools\ninja\1.9.0
+
+IDF_PATH 지정
+
++ python-2.7.17.amd64 install
+requirements.txt
+C:\\Python38\\python.exe -m pip install --user -r H:/work/project/esp32/aws/aws-iot/vendors/espressif/esp-idf\\requirements.txt
+WARNING: You are using pip version 19.2.3, however version 20.0.2 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+error: ‘char* strncpy(char*, const char*, size_t)’ output truncated before terminating nul copying 4 bytes from a string of the same length [-Werror=stringop-truncation] #297
+strncpy -> memcpy replace
+
+error: 'snprintf' output may be truncated before the last format character
+size를 키워서 해결
+
+CMake Error at H:/work/project/esp32/aws/aws-iot/vendors/espressif/esp-idf/tools/cmake/kconfig.cmake:38 (message):
+  Windows requires a prebuilt mconf-idf for your platform on the PATH, or an
+  MSYS2 version of gcc on the PATH to build mconf-idf.  Consult the setup
+  docs for ESP-IDF on Windows.
+
+git config --global user.name Wanjae-Lim
+git config --global user.email hulrangm@naver.com
+
+
+Duplicating a repository
+https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository
+
+https://github.com/espressif/esp-idf.git
+
+
+https://github.com/Wanjae-Lim/esp_idf.git
+
++ git fork
+fork 
+https://github.com/espressif/esp-idf
+git clone https://github.com/Wanjae-Lim/esp-idf.git
+cd esp-idf
+git remote add upstream https://github.com/Wanjae-Lim/esp-idf.git
+git branch test
+git push --set-upstream origin test
+
+git fetch upstream
+# Fetches any new changes from the original repository
+git merge upstream/master
+# Merges any changes fetched into your working files
+
+git branch --set-upstream-to origin/feature-01
+ 
+  
+
+
