@@ -49,16 +49,21 @@ H:\work\project\esp32\esp-idf
 
 
 + python-2.7.17.amd64 install
++ python-3.8.1-amd64 install
+
 requirements.txt
-C:\\Python38\\python.exe -m pip install --user -r H:/work/project/esp32/aws/aws-iot/vendors/espressif/esp-idf\\requirements.txt
+C:\\Python27\\python.exe -m pip install --user -r H:/work/project/esp32/aws/aws-iot/vendors/espressif/esp-idf\\requirements.txt
 python -m pip install --upgrade pip
 
-+ python-3.8.1-amd64 install
+
 + idf.py build
 
 + idf.py -p PORT [-b BAUD] flash
 idf.py -p COM3 -b 115200 flash
 
+[Set environment path for using powershell]
+C:\.espressif\tools\idf-exe\1.0.1 
+C:\.espressif\tools\cmake\3.13.4\bin
 
 =============================================================================================================================================================================================================================================================================
 				AWS IoT
