@@ -24,9 +24,9 @@ ESP-IDF Tools Installer
 
 idf.py build
 
-choco install python
-choco uninstall python (version에 따라서 script 이행 안됨)
-https://go.microsoft.com/fwlink/?LinkID=135170
+#choco install python
+#choco uninstall python (version에 따라서 script 이행 안됨)
+#https://go.microsoft.com/fwlink/?LinkID=135170
 
 
 cd %userprofile%\esp_idf
@@ -35,8 +35,25 @@ xcopy /e /i .\esp-idf\examples\get-started\hello_world\* hello_world
 + esp-idf-tools-setup-2.2 install
 
 + idf.py
+[powershell use]
 https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started-cmake/add-idf_path-to-profile.html
 
++ create environment value
+IDF_PATH
+H:\work\project\esp32\esp-idf
+
++ register path
+#C:\.espressif\tools\cmake\3.13.4\bin
+#C:\.espressif\tools\idf-exe\1.0.1
++ uninstall python version and cmake, no need more version and tools
+
+
++ python-2.7.17.amd64 install
+requirements.txt
+C:\\Python38\\python.exe -m pip install --user -r H:/work/project/esp32/aws/aws-iot/vendors/espressif/esp-idf\\requirements.txt
+python -m pip install --upgrade pip
+
++ python-3.8.1-amd64 install
 + idf.py build
 
 + idf.py -p PORT [-b BAUD] flash
@@ -56,9 +73,6 @@ C:\.espressif\tools\ninja\1.9.0
 
 IDF_PATH 지정
 
-+ python-2.7.17.amd64 install
-requirements.txt
-C:\\Python38\\python.exe -m pip install --user -r H:/work/project/esp32/aws/aws-iot/vendors/espressif/esp-idf\\requirements.txt
 WARNING: You are using pip version 19.2.3, however version 20.0.2 is available.
 You should consider upgrading via the 'python -m pip install --upgrade pip' command.
 
